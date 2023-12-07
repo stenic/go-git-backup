@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/stenic/go-git-backup/compare/v1.0.4...v1.0.5) (2023-12-07)
+
+
+### Bug Fixes
+
+* Viper even sooner ([89c37d7](https://github.com/stenic/go-git-backup/commit/89c37d779a1dc2ddefe6af714ebe3a4e938d3e41))
+
 ## [1.0.4](https://github.com/stenic/go-git-backup/compare/v1.0.3...v1.0.4) (2023-12-07)
 
 
