@@ -6,6 +6,7 @@ package main
 import (
 	"io"
 	"os"
+	"strings"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -25,6 +26,8 @@ var rootCmd = &cobra.Command{
 		})
 	},
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
+		viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+		viper.AutomaticEnv()
 		return setUpLogs(os.Stdout, v)
 	},
 }

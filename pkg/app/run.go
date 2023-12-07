@@ -5,7 +5,6 @@ import (
 	"errors"
 	"os"
 	"path/filepath"
-	"strings"
 	"time"
 
 	"github.com/dustin/go-humanize"
@@ -29,9 +28,6 @@ func init() {
 
 func Run(ctx context.Context, platform Platform) error {
 	start := time.Now()
-
-	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
-	viper.AutomaticEnv()
 
 	token := viper.GetString(platform.Name + ".token")
 	repoDir := viper.GetString("repos.dir")
