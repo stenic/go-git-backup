@@ -62,7 +62,7 @@ func (b Bundler) Bundle(ctx context.Context, repo model.Repository, gitAuth http
 	rlog.Trace("Creating bundle")
 	bundleFile := filepath.Join(b.BundleDir, repo.Slug+".bundle")
 	os.Mkdir(filepath.Dir(bundleFile), 0755)
-	cmd := exec.CommandContext(ctx, "bash", "-c", "git bundle create "+bundleFile+" --all")
+	cmd := exec.CommandContext(ctx, "sh", "-c", "git bundle create "+bundleFile+" --all")
 	cmd.Dir = target
 	out, err := cmd.CombinedOutput()
 	logrus.Trace(string(out))
