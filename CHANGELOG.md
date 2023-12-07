@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/stenic/go-git-backup/compare/v1.0.0...v1.0.1) (2023-12-07)
+
+
+### Bug Fixes
+
+* Ci fixes ([05315b1](https://github.com/stenic/go-git-backup/commit/05315b13b4ca6f3b93da0156d2ee50d017624946))
+
 # 1.0.0 (2023-12-07)
 
 
