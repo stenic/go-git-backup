@@ -21,7 +21,7 @@ var rootCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		return app.Run(cmd.Context(), app.Platform{
 			Name:         "github",
-			Organisation: "aspect-analytics",
+			Organisation: viper.GetString("github.organisation"),
 		})
 	},
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
