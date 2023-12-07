@@ -26,8 +26,6 @@ var rootCmd = &cobra.Command{
 		})
 	},
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
-		viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
-		viper.AutomaticEnv()
 		return setUpLogs(os.Stdout, v)
 	},
 }
@@ -35,7 +33,10 @@ var rootCmd = &cobra.Command{
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	viper.AutomaticEnv()
 	viper.SetDefault("log.level", "info")
+
 	rootCmd.PersistentFlags().StringVarP(&v, "verbosity", "v", viper.GetString("log.level"), "Log level (debug, info, warn, error, fatal, panic")
 	err := rootCmd.Execute()
 	if err != nil {
