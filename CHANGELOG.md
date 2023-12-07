@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/stenic/go-git-backup/compare/v1.0.2...v1.0.3) (2023-12-07)
+
+
+### Bug Fixes
+
+* Use sh instead of bash ([bf60b3c](https://github.com/stenic/go-git-backup/commit/bf60b3cebe829024ec6936ea255a139abaefdba5))
+
 ## [1.0.2](https://github.com/stenic/go-git-backup/compare/v1.0.1...v1.0.2) (2023-12-07)
 
 
