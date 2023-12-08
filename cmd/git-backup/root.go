@@ -14,7 +14,10 @@ import (
 	"github.com/stenic/go-git-backup/pkg/app"
 )
 
-var v string
+var (
+	v         string
+	logFormat string
+)
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -38,6 +41,7 @@ func Execute() {
 	viper.SetDefault("log.level", "info")
 
 	rootCmd.PersistentFlags().StringVarP(&v, "verbosity", "v", viper.GetString("log.level"), "Log level (debug, info, warn, error, fatal, panic")
+	rootCmd.PersistentFlags().StringVar(&logFormat, "log-format", "text", "Log format (text, json)")
 	err := rootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
@@ -55,5 +59,17 @@ func setUpLogs(out io.Writer, level string) error {
 		return err
 	}
 	logrus.SetLevel(lvl)
+
+	switch logFormat {
+	case "json":
+		logrus.SetFormatter(&logrus.JSONFormatter{})
+	case "text":
+		customFormatter := new(logrus.TextFormatter)
+		customFormatter.DisableTimestamp = true
+		logrus.SetFormatter(customFormatter)
+	default:
+		logrus.Error("Unknown log format: ", logFormat)
+	}
+
 	return nil
 }
